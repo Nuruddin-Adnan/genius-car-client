@@ -1,3 +1,13 @@
+.home-banner .slider-img {
+    max-height: 600px;
+}
+
+@media screen and (max-width: 575px) {
+    .home-banner .slider-img {
+        min-height: 460px;
+    }
+}
+
 .swiper-button-disabled {
     background-color: rgba(255, 255, 255, 0.2) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;

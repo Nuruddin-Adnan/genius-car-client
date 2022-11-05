@@ -11,10 +11,10 @@ const Footer = () => {
                     <img src={logo} alt="logo" />
                     <p>Edwin Diaz is a software and web <br /> technologies engineer, a life coach <br /> trainer who is also a serial .</p>
                     <div className='flex'>
-                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] rounded-full m-1 grid place-content-center' to='/'><AiOutlineGoogle></AiOutlineGoogle></Link>
-                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] rounded-full m-1 grid place-content-center' to='/'><AiOutlineTwitter></AiOutlineTwitter></Link>
-                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] rounded-full m-1 grid place-content-center' to='/'><AiOutlineInstagram></AiOutlineInstagram></Link>
-                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] rounded-full m-1 grid place-content-center' to='/'><AiFillLinkedin></AiFillLinkedin></Link>
+                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] hover:bg-orange-600 rounded-full m-1 grid place-content-center' to='/'><AiOutlineGoogle></AiOutlineGoogle></Link>
+                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] hover:bg-orange-600 rounded-full m-1 grid place-content-center' to='/'><AiOutlineTwitter></AiOutlineTwitter></Link>
+                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] hover:bg-orange-600 rounded-full m-1 grid place-content-center' to='/'><AiOutlineInstagram></AiOutlineInstagram></Link>
+                        <Link className='w-9 h-9 text-sm bg-[#2C2C2C] hover:bg-orange-600 rounded-full m-1 grid place-content-center' to='/'><AiFillLinkedin></AiFillLinkedin></Link>
                     </div>
                 </div>
                 <div>

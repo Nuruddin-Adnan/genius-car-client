@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
     return (
-        <div className='container'>
-            Home page <FaBeer />
-        </div>
+        <main>
+            <Banner></Banner>
+        </main>
     );
 };
 

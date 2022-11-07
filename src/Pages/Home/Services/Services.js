@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from 'react-router-dom';
 
 const Services = () => {
-    const [services, setServices] = useState();
+    const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('services.json')
+        fetch('http://localhost:5000/services/')
             .then(res => res.json())
-            .then(data => {
-                setServices(data)
-                console.log(data);
-            })
+            .then(data => setServices(data));
     }, [])
     return (
         <div className='container services pt-10 pb-20 px-3'>
@@ -30,7 +28,7 @@ const Services = () => {
 
                                 <div className="card-actions justify-between">
                                     <p className='text-[#FF3811] font-semibold text-xl'>Price: ${service.price}</p>
-                                    <button className="text-[#FF3811] font-semibold text-xl"><HiArrowRight></HiArrowRight></button>
+                                    <Link to={`/checkout/${service._id}`} className="text-[#FF3811] font-semibold text-xl"><HiArrowRight></HiArrowRight></Link>
                                 </div>
                             </div>
                         </div>

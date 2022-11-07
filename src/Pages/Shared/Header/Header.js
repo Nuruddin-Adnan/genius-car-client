@@ -1,8 +1,20 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.svg'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log('signout')
+            })
+            .catch(error => console.error(error.message))
+    }
+
     const menuItems = <>
         <li><Link className='font-semibold text-lg text-[#444444]' to='/'>Home</Link></li>
         <li><Link className='font-semibold text-lg text-[#444444]' to='/about'>About</Link></li>
@@ -52,25 +64,31 @@ const Header = () => {
                     <button className="btn btn-ghost btn-circle">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </button>
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img src="https://placeimg.com/80/80/people" alt='avatar' />
+                    {
+                        user?.uid ?
+                            <div className="dropdown dropdown-end">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={user?.photoURL} alt='avatar' />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <Link to='/profile' className="justify-between">
+                                            Profile
+                                            <span className="badge">New</span>
+                                        </Link>
+                                    </li>
+                                    <li><Link to='/setting'>Settings</Link></li>
+                                    <li><button onClick={handleLogOut}>Logout</button></li>
+                                </ul>
                             </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <Link to='/profile' className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </Link>
-                            </li>
-                            <li><Link to='/setting'>Settings</Link></li>
-                            <li><Link to='/signout'>Logout</Link></li>
-                        </ul>
-                    </div>
+                            :
+                            <Link to='/login' className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811]">Appointment</Link>
+                    }
 
-                    <Link to='/login' className="btn btn-outline text-[#FF3811] hover:text-white hover:bg-[#FF3811] hover:border-[#FF3811]">Appointment</Link>
+
+
                 </div>
             </div>
         </header>
